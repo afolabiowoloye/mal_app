@@ -36,6 +36,10 @@ st.markdown("""
 ### `` Figure 1: Testset Confusion Matrix``
 """)
 
+st.markdown("""
+<h3 style='color: red;'>Figure 1: Testset Confusion Matrix</h3>
+""", unsafe_allow_html=True)
+
 
 # Sidebar
 with st.sidebar.header('Instruction on how to use this app'):
