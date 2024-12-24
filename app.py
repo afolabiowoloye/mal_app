@@ -32,7 +32,9 @@ st.title("Plasmo3Net: Malaria Detection using CNN")
 
 image = 'logo/CNN_confusion_matrix_test.png'
 st.image(image, use_column_width=True)
-st.write("Testset Confusion Matrix")
+st.markdown("""
+### ``Testset Confusion Matrix``
+""")
 
 # File uploader
 uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
