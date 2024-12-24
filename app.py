@@ -31,13 +31,17 @@ st.title("Plasmo3Net: Malaria Detection using CNN")
 
 
 image = 'logo/CNN_confusion_matrix_test.png'
-#st.image(image, use_container_width=True)
-#st.markdown("""
+st.image(image, use_container_width=True)
+st.markdown("""
 #### `` Figure 1: Testset Confusion Matrix``
-#""")
+""")
 
 st.markdown("""
-<h3 style='color: red;'>Figure 1: Testset Confusion Matrix</h3>
+<h3 style='color: red;'>Model Evaluation</h3>
+<h4 style='color: blue;'>Model Evaluation</h4>
+<h4 style='color: blue;'>Model Evaluation</h4>
+<h4 style='color: blue;'>Model Evaluation</h4>
+<h4 style='color: blue;'>Model Evaluation</h4>
 """, unsafe_allow_html=True)
 
 
