@@ -36,6 +36,13 @@ st.markdown("""
 ### `` Figure 1: Testset Confusion Matrix``
 """)
 
+
+# Sidebar
+with st.sidebar.header('Instruction on how to use this app'):
+      st.sidebar.markdown("""
+This section will guide you on how to use this app..... some text here)
+""")
+
 # File uploader
 uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
 
