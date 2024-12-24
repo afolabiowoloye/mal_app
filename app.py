@@ -29,6 +29,7 @@ img_height = 64
 # Streamlit app title
 st.title("Plasmo3Net: Malaria Detection using CNN")
 
+st.write("Testset Confusion Matrix")
 image = 'logo/CNN_confusion_matrix_test.png'
 st.image(image, use_column_width=True)
 
