@@ -72,7 +72,7 @@ if uploaded_file is not None:
     # Display the image with the prediction
     st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
 
-    st.markdown(f"<h4 style='color: red;'>Predicted Label: <strong>{label}</strong></h4>", unsafe_allow_html=True)
+    st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)
     #st.write(f"Predicted Label: **{label}**")
     
     # Optionally, save the predicted image
