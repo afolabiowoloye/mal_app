@@ -27,7 +27,32 @@ img_width = 64
 img_height = 64
 
 # Streamlit app title
-st.title("Plasmo3Net: Malaria Detection using CNN")
+#st.title("Plasmo3Net: Malaria Detection using CNN")
+
+#-----------Web page setting-------------------#
+#page_title = "💊Plasmo3Net: Malaria Detection using CNN"
+page_icon = "🎗🧬⌬"
+viz_icon = "📊"
+stock_icon = "📋"
+picker_icon = "👇"
+layout = "centered"
+#--------------------Page configuration------------------#
+st.set_page_config(page_title = page_title, page_icon = page_icon, layout = layout)
+
+# Title of the app
+#st.title("pIC50 Prediction App")
+# Logo image
+#image = 'logo/logo.jpg'
+#st.image(image, use_container_width=True)
+
+
+selected = option_menu(
+    menu_title = page_title + " " + page_icon,
+    options = ['Home', 'Cell segmentation', 'Prediction', 'About'],
+    icons = ["house-fill", "capsule", "heart-fill", "heart"],
+    default_index = 0,
+    orientation = "horizontal"
+)
 
 
 image = 'logo/CNN_confusion_matrix_test.png'
