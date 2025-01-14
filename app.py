@@ -56,7 +56,7 @@ selected = option_menu(
 )
 
 if selected == "Home":
-    st.subheader("Welcome to Breast Cancer pIC50 Prediction Web App")
+    st.subheader("Welcome to Malaria...")
     st.write("This application is designed to assist researchers and healthcare professionals in predicting...")
    
 
