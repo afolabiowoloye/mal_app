@@ -87,7 +87,7 @@ def create_zip_of_images(output_dir):
     return zip_filename
 
 # Streamlit app layout
-st.title("Red Blood Cell Segmentation")
+#st.title("Red Blood Cell Segmentation")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
