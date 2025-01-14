@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import requests
 import os
+from streamlit_option_menu import option_menu # for setting up menu bar
 
 # Load the trained model from Google Drive
 model_link_id = "1Fwhl5iEqgsoblKymdUFbp10eesb69O7T"
