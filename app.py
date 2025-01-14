@@ -30,7 +30,7 @@ img_height = 64
 #st.title("Plasmo3Net: Malaria Detection using CNN")
 
 #-----------Web page setting-------------------#
-#page_title = "💊Plasmo3Net: Malaria Detection using CNN"
+page_title = "💊Plasmo3Net: Malaria Detection using CNN"
 page_icon = "🎗🧬⌬"
 viz_icon = "📊"
 stock_icon = "📋"
