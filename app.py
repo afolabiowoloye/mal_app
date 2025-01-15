@@ -33,6 +33,11 @@ img_height = 64
 # Streamlit app title
 #st.title("Plasmo3Net: Malaria Detection using CNN")
 
+head_image = 'logo/header.png'
+st.image(head_image, use_container_width=True)
+
+
+
 #-----------Web page setting-------------------#
 page_title = "💊Plasmo3Net: Malaria Detection using CNN"
 page_icon = "🎗🧬⌬"
