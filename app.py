@@ -34,14 +34,18 @@ img_height = 64
 #st.title("Plasmo3Net: Malaria Detection using CNN")
 
 #-----------Web page setting-------------------#
-page_title = "💊Malaria Detection Web App using CNN"
+page_title1 = st.markdown("""
+    <h3 style='color: blue;'>💊Malaria Detection Web App using CNN</h3>
+    """, unsafe_allow_html=True)
+
+#page_title = "💊Malaria Detection Web App using CNN"
 page_icon = "🎗🧬⌬"
 viz_icon = "📊"
 stock_icon = "📋"
 picker_icon = "👇"
 layout = "centered"
 #--------------------Page configuration------------------#
-st.set_page_config(page_title = page_title, page_icon = page_icon, layout = layout)
+st.set_page_config(page_title = page_title1, page_icon = page_icon, layout = layout)
 
 
 head_image = 'logo/header.png'
