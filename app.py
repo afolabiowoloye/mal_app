@@ -57,7 +57,7 @@ st.image(head_image, use_container_width=True)
 
 selected = option_menu(
     menu_title = page_title + " " + page_icon,
-    options = ['Home', 'Cell segmentation', 'Prediction', 'About'],
+    options = ['Home', 'Cell segmentation', 'Run Diagnosis', 'About'],
     icons = ["house-fill", "capsule", "heart-fill", "heart"],
     default_index = 0,
     orientation = "horizontal"
@@ -68,7 +68,7 @@ if selected == "Home":
     st.write("This application is designed to assist researchers and healthcare professionals in predicting...")
    
 
-if selected == "Prediction":
+if selected == "Run Diagnosis":
     image = 'logo/CNN_confusion_matrix_test.png'
     st.image(image, use_container_width=True)
     st.markdown("""
