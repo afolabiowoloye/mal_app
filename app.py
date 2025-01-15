@@ -45,7 +45,7 @@ stock_icon = "📋"
 picker_icon = "👇"
 layout = "centered"
 #--------------------Page configuration------------------#
-st.set_page_config(page_title = (page_title, 'color: blue' ), page_icon = page_icon, layout = layout)
+st.set_page_config(page_title = page_title, 'color: blue', page_icon = page_icon, layout = layout)
 
 
 head_image = 'logo/header.png'
