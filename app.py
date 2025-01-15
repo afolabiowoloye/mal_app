@@ -34,7 +34,7 @@ img_height = 64
 #st.title("Plasmo3Net: Malaria Detection using CNN")
 
 #-----------Web page setting-------------------#
-page_title = "💊Plasmo3Net: Malaria Detection using CNN"
+page_title = "💊Malaria Detection Web App using CNN"
 page_icon = "🎗🧬⌬"
 viz_icon = "📊"
 stock_icon = "📋"
@@ -42,12 +42,6 @@ picker_icon = "👇"
 layout = "centered"
 #--------------------Page configuration------------------#
 st.set_page_config(page_title = page_title, page_icon = page_icon, layout = layout)
-
-# Title of the app
-#st.title("pIC50 Prediction App")
-# Logo image
-#image = 'logo/logo.jpg'
-#st.image(image, use_container_width=True)
 
 
 head_image = 'logo/header.png'
