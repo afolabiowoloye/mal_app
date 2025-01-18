@@ -112,35 +112,53 @@ if selected == "Run Diagnosis":
     """)
 
 # File uploader
-    uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
-
+    #uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
     if uploaded_file is not None:
     # Load the test image
-        test_image = Image.open(uploaded_file)
-    
+        #test_image = Image.open(uploaded_file)
     # Preprocess the test image
-        test_image = test_image.resize((img_width, img_height))
-        test_image = np.array(test_image) / 255.0  # Normalize the pixel values
-        test_image = np.expand_dims(test_image, axis=0)  # Add batch dimension
-    
+        #test_image = test_image.resize((img_width, img_height))
+        #test_image = np.array(test_image) / 255.0  # Normalize the pixel values
+        #test_image = np.expand_dims(test_image, axis=0)  # Add batch dimension    
     # Make the prediction
-        prediction = model.predict(test_image)
-    
+        #prediction = model.predict(test_image)    
     # Interpret the prediction
-        label = "Uninfected" if prediction[0][0] >= 0.5 else "Parasitized"
-    
+        #label = "Uninfected" if prediction[0][0] >= 0.5 else "Parasitized"    
     # Display the image with the prediction
-        st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
-
-        st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)
-        #st.write(f"Predicted Label: **{label}**")
-    
+        #st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
+        #st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)
+        ##st.write(f"Predicted Label: **{label}**")    
     # Optionally, save the predicted image
-        plt.imshow(test_image[0])
-        plt.title("Predicted Label: " + label)
-        plt.axis("off")
-        plt.savefig("predicted_image.png")
-        plt.close()  # Close the plot to avoid display issues
+        #plt.imshow(test_image[0])
+        #plt.title("Predicted Label: " + label)
+        #plt.axis("off")
+        #plt.savefig("predicted_image.png")
+        #plt.close()  # Close the plot to avoid display issues
+
+# File uploader
+    uploaded_files = st.file_uploader("Choose images...", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
+    if uploaded_files is not None:
+        for uploaded_file in uploaded_files:
+        # Load the test image
+            test_image = Image.open(uploaded_file)        
+        # Preprocess the test image
+            test_image_resized = test_image.resize((img_width, img_height))
+            test_image_array = np.array(test_image_resized) / 255.0  # Normalize the pixel values
+            test_image_array = np.expand_dims(test_image_array, axis=0)  # Add batch dimension        
+        # Make the prediction
+            prediction = model.predict(test_image_array)        
+        # Interpret the prediction
+            label = "Uninfected" if prediction[0][0] >= 0.5 else "Parasitized"        
+        # Display the image with the prediction
+            st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
+            st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)        
+        # Optionally, save the predicted image
+            plt.imshow(test_image_array[0])
+            plt.title("Predicted Label: " + label)
+            plt.axis("off")
+            plt.savefig(f"predicted_image_{uploaded_file.name}.png")
+            plt.close()  # Close the plot to avoid display issues
+
 
 
 ### Beginning of functions
