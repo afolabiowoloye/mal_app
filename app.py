@@ -66,6 +66,18 @@ selected = option_menu(
 if selected == "Home":
     st.subheader("Welcome to Malaria...")
     st.write("This application is designed to assist researchers and healthcare professionals in predicting...")
+    st.markdown("""
+    <h3 style='color: red;'>Model Evaluation</h3>
+    Welcome to our Malaria Detection Application! This innovative tool leverages advanced Convolutional Neural Network (CNN) architecture to assist in the early detection of malaria through the analysis of microscope slide images. Our application is designed to assist in the early detection of malaria through advanced image processing techniques and computer vision.
+    <h5 style='color: blue;'>Accuracy = 99.3%</h5>
+    
+    <h5 style='color: blue;'>Precision = 99.1</h5>
+    
+    <h5 style='color: blue;'>F1 score = 99.3</h5>
+    
+    <h5 style='color: blue;'>Recall = 99.6</h5>
+    
+    """, unsafe_allow_html=True)
    
 
 if selected == "Run Diagnosis":
