@@ -67,28 +67,25 @@ if selected == "Home":
 #    st.subheader("Welcome to Malaria Detection Web Application")
 #    st.write("This application is designed to assist researchers and healthcare professionals in predicting...")
     st.markdown("""
-    <h3 style='color: red;'>Welcome to Malaria Detection Web Application</h3> Welcome to our Malaria Detection Application! This innovative tool leverages advanced Convolutional Neural Network (CNN) architecture to assist in the early detection of malaria through the analysis of microscope slide images. Our application is designed to assist in the early detection of malaria through advanced image processing techniques and computer vision.
+    <h3 style='color: red;'>Welcome to Malaria Detection Web Application</h3>
+    Welcome to our Malaria Detection Application! This innovative tool leverages advanced Convolutional Neural Network (CNN) architecture to assist in the early detection of malaria through the analysis of microscope slide images. Our application is designed to assist in the early detection of malaria through advanced image processing techniques and computer vision.
     
     <h5 style='color: blue;'>Here’s a step-by-step overview of how the application operates:</h5>
     <h6 style='color: blue;'>1. Image Upload</h6>
     - Users can upload microscope slide images containing red blood cells (RBCs). The application supports various image formats for ease of use.
 
-    
-    <h6 style='color: blue;'>2. Segmentation</h6>
+        <h6 style='color: blue;'>2. Segmentation</h6>
     - Once the image is uploaded, the application employs sophisticated image processing techniques to segment the RBCs from the background. This step is crucial for isolating the cells for further analysis.
     
-    
-    <h6 style='color: blue;'>3. Classification</h6>
+        <h6 style='color: blue;'>3. Classification</h6>
     - After segmentation, the application analyzes the isolated RBC images. Using a trained CNN model, it classifies each cell as either infected or uninfected. This classification is based on features learned during training, ensuring high accuracy.
        
     <h6 style='color: blue;'>Results Display</h6>
     The results are displayed to the user, indicating the number of infected and uninfected RBCs in the uploaded image. This information is vital for healthcare professionals to diagnose malaria quickly and efficiently.
 
-
     <h6 style='color: blue;'>User-Friendly Interface</h6>
     - The application is designed with a user-friendly interface, making it accessible for both medical professionals and researchers. Users can easily navigate through the process and obtain results in real time.
-    
-    
+        
     """, unsafe_allow_html=True)
    
 
