@@ -113,7 +113,7 @@ if selected == "Run Diagnosis":
 
 # File uploader
     #uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
-    if uploaded_file is not None:
+    #if uploaded_file is not None:
     # Load the test image
         #test_image = Image.open(uploaded_file)
     # Preprocess the test image
