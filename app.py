@@ -110,7 +110,8 @@ if selected == "Run Diagnosis":
           st.sidebar.markdown("""
     This section will guide you on how to use this app..... some text here)
     """)
-
+        
+###*** For single images***###
 # File uploader
     #uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
     #if uploaded_file is not None:
@@ -134,6 +135,7 @@ if selected == "Run Diagnosis":
         #plt.axis("off")
         #plt.savefig("predicted_image.png")
         #plt.close()  # Close the plot to avoid display issues
+###*** End_For single images***###
 
 # File uploader
     uploaded_files = st.file_uploader("Choose images...", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
