@@ -67,10 +67,9 @@ if selected == "Home":
 #    st.subheader("Welcome to Malaria Detection Web Application")
 #    st.write("This application is designed to assist researchers and healthcare professionals in predicting...")
     st.markdown("""
-    <h3 style='color: red;'>Welcome to Malaria Detection Web Application</h3>
-    Welcome to our Malaria Detection Application! This innovative tool leverages advanced Convolutional Neural Network (CNN) architecture to assist in the early detection of malaria through the analysis of microscope slide images. Our application is designed to assist in the early detection of malaria through advanced image processing techniques and computer vision.
+    <h3 style='color: red;'>Welcome to Malaria Detection Web Application</h3> Welcome to our Malaria Detection Application! This innovative tool leverages advanced Convolutional Neural Network (CNN) architecture to assist in the early detection of malaria through the analysis of microscope slide images. Our application is designed to assist in the early detection of malaria through advanced image processing techniques and computer vision.
     
-    <h5 style='color: blue;'>Here’s a step-by-step overview of how the application operates:%</h5>
+    <h5 style='color: blue;'>Here’s a step-by-step overview of how the application operates:</h5>
     <h6 style='color: blue;'>1. Image Upload</h6>
     - Users can upload microscope slide images containing red blood cells (RBCs). The application supports various image formats for ease of use.
 
