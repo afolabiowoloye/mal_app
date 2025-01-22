@@ -138,10 +138,10 @@ if selected == "Run Diagnosis":
 
 # Sidebar
     with st.sidebar.header('Upload Segmented RBCs'):
-          st.sidebar.markdown("""
-          This section takes segmented RBBCs an input.<br>
-          The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
-          """, unsafe_allow_html=True)
+        st.sidebar.markdown("""
+        This section takes segmented RBBCs an input.<br>
+        The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
+        """, unsafe_allow_html=True)
         st.sidebar.markdown("""[Example input file: Parasitized RBC](https://github.com/afolabiowoloye/mal_app/blob/main/logo/test_pos.png?raw=true)
         """)
         st.sidebar.markdown("""[Example input file; Uninfected RBC](https://github.com/afolabiowoloye/mal_app/blob/main/logo/test_unifected.png?raw=true)
