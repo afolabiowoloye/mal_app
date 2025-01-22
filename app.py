@@ -62,7 +62,7 @@ st.image(head_image, use_container_width=True)
 selected = option_menu(
     menu_title = page_title + " " + page_icon,
     options = ['Home', 'Cell Segmentation', 'Run Diagnosis', 'Contact'],
-    icons = ["house-fill", "🔍", "heart-fill", "envelope"],
+    icons = ["house-fill", "🔍", "heart-pulse", "envelope"],
     default_index = 0,
     orientation = "horizontal"
 )
