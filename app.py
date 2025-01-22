@@ -77,6 +77,13 @@ if selected == "Home":
     <h5 style='color: blue;'>Here’s a step-by-step overview of how the application operates:</h5>  
     """, unsafe_allow_html=True)
     
+    st.markdown("""
+    <style>
+    .streamlit-expanderHeader {background-color: #FAEBD7; color: black;}
+    .streamlit-expanderContent {background-color: white;color: blue;}
+    </style>
+    """, unsafe_allow_html=True)
+    
     with st.expander("**1. Upload Image**", icon=upload_icon):
         st.write("Users can upload microscope slide images containing red blood cells (RBCs). The application supports various image formats for ease of use.")
 
