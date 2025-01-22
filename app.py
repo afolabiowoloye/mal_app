@@ -45,7 +45,7 @@ stock_icon = "📋"
 picker_icon = "👇"
 layout = "centered"
 upload_icon ="📤"
-segementation_icon = "🔍"
+segmentation_icon = "🔍"
 classification_icon ="📊"
 result_icon ="📈"
 
