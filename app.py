@@ -90,8 +90,8 @@ if selected == "Home":
     st.markdown('''
     <style>
     .streamlit-expanderHeader {
-        background-color: white;
-        color: black; # Adjust this for expander header color
+        background-color: blue;
+        color: green; # Adjust this for expander header color
     }
     .streamlit-expanderContent {
         background-color: white;
