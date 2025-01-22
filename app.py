@@ -105,7 +105,7 @@ if selected == "Home":
           st.sidebar.markdown("""
           **Step 1: Image Segmentation (For Microscope Slide Images)**\n
           
-              i. If you are working with **microscope slide images**, click the **"Segmentation"** button.\n
+          i. If you are working with **microscope slide images**, click the **"Segmentation"** button.\n
           ii. The algorithm will automatically segment your images into individual **Red Blood Cell (RBC) images**\n
           
           **Step 2: Run Diagnosis (For Segmented RBC Images)**\n
