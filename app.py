@@ -101,6 +101,20 @@ if selected == "Home":
     This application is designed with a user-friendly interface, making it accessible to medical professionals and researchers. Users can easily navigate through the process and obtain results in real-time.
     """, unsafe_allow_html=True)
     
+    with st.sidebar.header('Instruction on how to use this app'):
+          st.sidebar.markdown("""
+          **How to Use the Web App** 
+          **Step 1: Image Segmentation (For Microscope Slide Images)**
+          1. If you are working with **microscope slide images**, click the **"Segmentation"** button.
+          2. The algorithm will automatically segment your images into individual **Red Blood Cell (RBC) images**.
+          **Step 2: Run Diagnosis (For Segmented RBC Images)**
+          1. After segmentation (or if you already have **segmented RBC images**), click the **"Run Diagnosis"** button.
+          2. Upload your segmented RBC images for classification.
+          3. The classification results will be displayed in **real-time**.
+          **Note**:
+          If you are working with **pre-segmented RBC images**, skip **Step 1** and go directly to **Step 2** for classification.)
+    """)
+    
 
 
    
