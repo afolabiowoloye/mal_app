@@ -110,7 +110,7 @@ if selected == "Home":
           <h4 style='color: purple;'>Step 2: Run Diagnosis (For Segmented RBC Images)</h4>
           i. After segmentation (or if you already have **segmented RBC images**), click the **Run Diagnosis** button.\n
           ii. Upload your segmented RBC images for classification.\n
-          iii. The classification results will be displayed in **real-time**.\n
+          iii. The classification results will be displayed in **real time**.\n
           
           <h4 style='color: purple;'>Note</h4>
           If you are working with **pre-segmented RBC images**, skip **Step 1** and go directly to **Step 2** for classification.
