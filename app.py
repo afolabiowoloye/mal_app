@@ -44,6 +44,7 @@ viz_icon = "📊"
 stock_icon = "📋"
 picker_icon = "👇"
 layout = "centered"
+upload_icon ="📤"
 
 #--------------------Page configuration------------------#
 st.set_page_config(page_title = page_title, page_icon = page_icon, layout = layout)
@@ -94,7 +95,7 @@ if selected == "Home":
     .streamlit-expanderContent {background-color: white; color: blue;}
     </style>
     """, unsafe_allow_html=True)
-    with st.expander("**Upload Image**", icon=picker_icon):
+    with st.expander("**Upload Image**", icon=upload_icon, color='green'):
         st.write("Users can upload microscope slide images containing red blood cells (RBCs). The application supports various image formats for ease of use!")
 
 
