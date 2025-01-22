@@ -1,5 +1,5 @@
 # Plasmo3Net: A Convolutional Neural Network-Based Algorithm for Detecting Malaria Parasites in Thin Blood Smear Images
-[Plasmo3Net Web App](https://plasmo3net.streamlit.app)
+<strong style="color: red;">[Plasmo3Net Web App](https://plasmo3net.streamlit.app)</strong>
 ### Authors
 [Afolabi Owoloye<sup>1,2,3</sup>](https://www.linkedin.com/in/afolabi-owoloye-a1b8a5b5/)
 [Funmilayo Ligali<sup>1,3</sup>](https://www.linkedin.com/in/samuel-olawale-olubode-6191a81aa/)
