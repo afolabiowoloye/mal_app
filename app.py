@@ -45,6 +45,9 @@ stock_icon = "📋"
 picker_icon = "👇"
 layout = "centered"
 upload_icon ="📤"
+segementation_icon = "🔍"
+classification_icon ="📊"
+result_icon ="📈"
 
 #--------------------Page configuration------------------#
 st.set_page_config(page_title = page_title, page_icon = page_icon, layout = layout)
@@ -77,13 +80,13 @@ if selected == "Home":
     with st.expander("**Upload Image**", icon=upload_icon):
         st.write("Users can upload microscope slide images containing red blood cells (RBCs). The application supports various image formats for ease of use.")
 
-    with st.expander("**Segmentation**", icon=upload_icon):
+    with st.expander("**Segmentation**", icon=segmentation_icon):
         st.write("Once the image is uploaded, the application employs sophisticated image processing techniques to segment the RBCs from the background. This step is crucial for isolating the cells for further analysis.")
     
-    with st.expander("**Classification**", icon=upload_icon):
+    with st.expander("**Classification**", icon=classification_icon):
         st.write("After segmentation, the application analyzes the isolated RBC images. Using a trained CNN model, it classifies each cell as either infected or uninfected. This classification is based on features learned during training, ensuring high accuracy.")
        
-    with st.expander("**Results Display**", icon=upload_icon):
+    with st.expander("**Results Display**", icon=result_icon):
         st.write("The results are displayed to the user, indicating the number of infected and uninfected RBCs in the uploaded image. This information is vital for healthcare professionals to diagnose malaria quickly and efficiently.")
 
     st.markdown("""
