@@ -107,12 +107,12 @@ if selected == "Home":
           i. If you are working with **microscope slide images**, click the **"Segmentation"** button.\n
           ii. The algorithm will automatically segment your images into individual **Red Blood Cell (RBC) images**\n
           
-          **Step 2: Run Diagnosis (For Segmented RBC Images)**\n
+          <h5 style='color: blue;'>Step 2: Run Diagnosis (For Segmented RBC Images)</h5>
           i. After segmentation (or if you already have **segmented RBC images**), click the **"Run Diagnosis"** button.\n
           ii. Upload your segmented RBC images for classification.\n
           iii. The classification results will be displayed in **real-time**.\n
           
-          **Note**:\n
+          <h5 style='color: blue;'>Note</h5>
           If you are working with **pre-segmented RBC images**, skip **Step 1** and go directly to **Step 2** for classification.)
           """, unsafe_allow_html=True)
     
