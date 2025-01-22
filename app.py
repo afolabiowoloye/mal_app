@@ -88,7 +88,7 @@ if selected == "Home":
         
     """, unsafe_allow_html=True)
     
-    with st.expander("**Expand**"):
+    with st.expander("*Expand*"):
         st.write("Content inside the expander")
 
 
