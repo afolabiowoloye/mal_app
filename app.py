@@ -90,7 +90,7 @@ if selected == "Home":
     
     st.markdown("""
     <style>
-    .streamlit-expanderHeader {background-color: gray; color: white;}
+    .streamlit-expanderHeader {background-color: #FAEBD7; color: green;}
     .streamlit-expanderContent {background-color: white; color: blue;}
     </style>
     """, unsafe_allow_html=True)
