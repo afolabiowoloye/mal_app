@@ -316,4 +316,30 @@ if selected == "Cell Segmentation":
         
         st.sidebar.markdown("""[Example input file](https://github.com/afolabiowoloye/mal_app/blob/main/logo/sample.jpg?raw=true)""")
 
+
+if selected == "Contact":
+    st.subheader("About the Team Members")
+    # Image list
+    image1 = "logo/oyebola.jpg"
+    image2 = "logo/afolabi.jpg"
+
+    # Create a 1x2 grid
+    col1, col2 = st.columns(2)
+
+    # Place the images in the grid
+    with col1:
+        st.image(image1, use_container_width=True)
+
+    with col2:
+        st.image(image2, use_container_width=True)
+
+
+    st.subheader("Contact us")
+    st.markdown(
+        """
+        Afolabi OWOLOYE afolabiowoloye@yahoo.com.<br>
+        Funmilayo LIGALI xyz@gmail.com <br>
+        """,
+        unsafe_allow_html=True
+    )
 # %%
