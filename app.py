@@ -113,7 +113,7 @@ if selected == "Home":
         <strong>iii.</strong> The classification results will be displayed in <strong>real-time</strong>.<br>
             
         <h4 style='color: purple;'>Note</h4>
-        If you are working with <strong>pre-segmented RBC images</strong>, skip <strong>Step 1</strong> and go directly to <strong>Step 2</strong> for classification.
+        If you are working with <strong>segmented RBC images</strong>, skip <strong>Step 1</strong> and go directly to <strong>Step 2</strong> for classification.
         """, unsafe_allow_html=True)
     
 
@@ -137,10 +137,15 @@ if selected == "Run Diagnosis":
 
 
 # Sidebar
-    with st.sidebar.header('Instruction on how to use this app'):
+    with st.sidebar.header('Upload Segmented RBCs'):
           st.sidebar.markdown("""
-    This section will guide you on how to use this app..... some text here)
-    """)
+          This section takes segmented RBBCs an input.<br>
+          The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
+          """, unsafe_allow_html=True)
+        st.sidebar.markdown("""[Example input file: Parasitized RBC](https://github.com/afolabiowoloye/mal_app/blob/main/logo/test_pos.png?raw=true)
+        """)
+        st.sidebar.markdown("""[Example input file; Uninfected RBC](https://github.com/afolabiowoloye/mal_app/blob/main/logo/test_unifected.png?raw=true)
+        """)
         
 ###*** For single images***###
 # File uploader
