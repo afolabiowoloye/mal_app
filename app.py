@@ -308,5 +308,6 @@ if selected == "Cell segmentation":
         This algorithm takes a microscope slide image as an input.<be>
         The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
         """, unsafe_allow_html=True)
+        st.markdown("""[Example input file](https://raw.githubusercontent.com/afolabiowoloye/xyz/refs/heads/main/sample.csv)""")
 
 # %%
