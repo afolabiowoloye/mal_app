@@ -99,8 +99,8 @@ if selected == "Home":
     color: blue;}
     </style>
     """, unsafe_allow_html=True)
-    with st.expander("*See details*"):
-        st.write("Here's some detailed content!")
+    with st.expander("*Upload Image*"):
+        st.write("Users can upload microscope slide images containing red blood cells (RBCs). The application supports various image formats for ease of use!")
 
 
 
