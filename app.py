@@ -114,7 +114,7 @@ if selected == "Home":
           ii. Upload your segmented RBC images for classification.
           iii. The classification results will be displayed in **real-time**.
           
-          **Note**:n\
+          **Note**:\n
           If you are working with **pre-segmented RBC images**, skip **Step 1** and go directly to **Step 2** for classification.)
           """, unsafe_allow_html=True)
     
