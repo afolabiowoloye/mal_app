@@ -90,13 +90,8 @@ if selected == "Home":
     
     st.markdown("""
     <style>
-    .streamlit-expanderHeader {
-    background-color: gray;
-    color: white;
-    }
-    .streamlit-expanderContent {
-    background-color: white;
-    color: blue;}
+    .streamlit-expanderHeader {background-color: gray; color: white;}
+    .streamlit-expanderContent {background-color: white; color: blue;}
     </style>
     """, unsafe_allow_html=True)
     with st.expander("**Upload Image**"):
