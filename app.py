@@ -113,7 +113,7 @@ if selected == "Home":
           iii. The classification results will be displayed in **real-time**.\n
           
           <h4 style='color: purple;'>Note</h4>
-          If you are working with **pre-segmented RBC images**, skip **Step 1** and go directly to **Step 2** for classification.)
+          If you are working with **pre-segmented RBC images**, skip **Step 1** and go directly to **Step 2** for classification.
           """, unsafe_allow_html=True)
     
 
