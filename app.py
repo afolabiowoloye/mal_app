@@ -334,7 +334,7 @@ if selected == "Contact":
         st.image(image2, use_container_width=True)
 
 
-    st.subheader("Contact us")
+    st.subheader("Contact us 📩")
     st.markdown(
         """
         <strong>Afolabi OWOLOYE</strong> afolabiowoloye@yahoo.com.<br>
