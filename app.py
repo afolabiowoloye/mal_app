@@ -103,8 +103,7 @@ if selected == "Home":
     
     with st.sidebar.header("""How to Use the Web App"""):
           st.sidebar.markdown("""
-          **Step 1: Image Segmentation (For Microscope Slide Images)**\n
-          
+          <h5 style='color: blue;'>Step 1: Image Segmentation (For Microscope Slide Images)</h5>          
           i. If you are working with **microscope slide images**, click the **"Segmentation"** button.\n
           ii. The algorithm will automatically segment your images into individual **Red Blood Cell (RBC) images**\n
           
