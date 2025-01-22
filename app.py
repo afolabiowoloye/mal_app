@@ -115,6 +115,9 @@ if selected == "Home":
         <h4 style='color: purple;'>Note</h4>
         If you are working with <strong>segmented RBC images</strong>, skip <strong>Step 1</strong> and go directly to <strong>Step 2</strong> for classification.
         """, unsafe_allow_html=True)
+
+        
+        st.sidebar.markdown("""[<strong>Link to the Article<strong>](https://www.biorxiv.org/content/10.1101/2024.12.12.628235v1)""")
     
 
 
