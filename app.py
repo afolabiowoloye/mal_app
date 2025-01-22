@@ -90,7 +90,8 @@ if selected == "Home":
     with st.expander("<span style='color: blue; font-weight: bold;'>Welcome to Malaria Detection Web Application</span>", expanded=False):
         st.markdown("""
         Welcome to our Malaria Detection Application! This innovative tool leverages advanced Convolutional Neural Network (CNN) architecture to assist in the early detection of malaria through the analysis of microscope slide images. Our application is designed to assist in the early detection of malaria through advanced image processing techniques and computer vision.
-        """)
+        """, unsafe_allow_html=True)
+
    
 
 if selected == "Run Diagnosis":
