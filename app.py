@@ -87,10 +87,8 @@ if selected == "Home":
     - The application is designed with a user-friendly interface, making it accessible for both medical professionals and researchers. Users can easily navigate through the process and obtain results in real time.
         
     """, unsafe_allow_html=True)
-    with st.expander("<span style='color: blue; font-weight: bold;'>Welcome to Malaria Detection Web Application</span>", expanded=False, unsafe_allow_html=True):
-        st.markdown("""
-        Welcome to our Malaria Detection Application! This innovative tool leverages advanced Convolutional Neural Network (CNN) architecture to assist in the early detection of malaria through the analysis of microscope slide images. Our application is designed to assist in the early detection of malaria through advanced image processing techniques and computer vision.
-        """, unsafe_allow_html=True)
+    with st.expander("<h3 style='color: blue; font-weight: bold;'>Adetola</h3>", unsafe_allow_html=True):
+        st.markdown("**Below is great**")
 
    
 
