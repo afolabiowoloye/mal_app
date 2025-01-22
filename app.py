@@ -45,9 +45,9 @@ stock_icon = "📋"
 picker_icon = "👇"
 layout = "centered"
 upload_icon ="📤"
-segmentation_icon = "🔍"
-classification_icon ="📊"
-result_icon ="📈"
+segmentation_icon = "✂️"
+classification_icon ="🧩"
+result_icon ="✅"
 
 #--------------------Page configuration------------------#
 st.set_page_config(page_title = page_title, page_icon = page_icon, layout = layout)
@@ -62,7 +62,7 @@ st.image(head_image, use_container_width=True)
 selected = option_menu(
     menu_title = page_title + " " + page_icon,
     options = ['Home', 'Cell Segmentation', 'Run Diagnosis', 'Contact'],
-    icons = ["house-fill", "🔍", "heart-pulse", "envelope"],
+    icons = ["house-fill", "crop", "heart-pulse", "envelope"],
     default_index = 0,
     orientation = "horizontal"
 )
@@ -128,9 +128,9 @@ if selected == "Run Diagnosis":
     """)
 
     st.markdown("""
-    <h3 style='color: red;'>Model Evaluation</h3>
-    <h5 style='color: blue;'>Accuracy = 99.3%</h5>
-    <h5 style='color: blue;'>Precision = 99.1</h5>
+    <h3 style='color: red;'>📈Model Evaluation</h3>
+    <h5 style='color: blue;'>⚖️Accuracy = 99.3%</h5>
+    <h5 style='color: blue;'>🎯Precision = 99.1</h5>
     <h5 style='color: blue;'>F1 score = 99.3</h5>
     <h5 style='color: blue;'>Recall = 99.6</h5>
     """, unsafe_allow_html=True)
