@@ -101,9 +101,9 @@ if selected == "Home":
     This application is designed with a user-friendly interface, making it accessible to medical professionals and researchers. Users can easily navigate through the process and obtain results in real-time.
     """, unsafe_allow_html=True)
     
-    with st.sidebar.header("""<h3 style='color: red;'>How to Use the Web App</h3>""", unsafe_allow_html=True):
+    with st.sidebar.header("""How to Use the Web App"""):
           st.sidebar.markdown("""
-          <h3 style='color: red;'>How to Use the Web App</h3> 
+          #<h3 style='color: red;'>How to Use the Web App</h3> 
           **Step 1: Image Segmentation (For Microscope Slide Images)**
           
           i. If you are working with **microscope slide images**, click the **"Segmentation"** button.
