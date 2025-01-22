@@ -131,8 +131,8 @@ if selected == "Run Diagnosis":
     <h3 style='color: red;'>📈Model Evaluation</h3>
     <h5 style='color: blue;'>⚖️Accuracy = 99.3%</h5>
     <h5 style='color: blue;'>🎯Precision = 99.1</h5>
-    <h5 style='color: blue;'>F1 score = 99.3</h5>
-    <h5 style='color: blue;'>Recall = 99.6</h5>
+    <h5 style='color: blue;'>🔢F1 score = 99.3</h5>
+    <h5 style='color: blue;'>🧲Recall = 99.6</h5>
     """, unsafe_allow_html=True)
 
 
