@@ -104,13 +104,13 @@ if selected == "Home":
     with st.sidebar.header("""How to Use the Web App"""):
         st.sidebar.markdown("""
         <h4 style='color: purple;'>Step 1: Image Segmentation (For Microscope Slide Images)</h4>
-        i. If you are working with <strong>microscope slide images</strong>, click the <strong>Segmentation</strong> button.<be>
-        ii. The algorithm will automatically segment your images into individual <strong>Red Blood Cell (RBC) images</strong>.<br>
+        <strong>i.</strong> If you are working with <strong>microscope slide images</strong>, click the <strong>Segmentation</strong> button.<br>
+        <strong>ii.</strong> The algorithm will automatically segment your images into individual <strong>Red Blood Cell (RBC) images</strong>.<br>
             
         <h4 style='color: purple;'>Step 2: Run Diagnosis (For Segmented RBC Images)</h4>
-        i. After segmentation (or if you already have <strong>segmented RBC images</strong>), click the <strong>Run Diagnosis</strong> button.<br>
-        ii. Upload your segmented RBC images for classification.<br>
-        iii. The classification results will be displayed in <strong>real-time</strong>.<br>
+        <strong>i.</strong> After segmentation (or if you already have <strong>segmented RBC images</strong>), click the <strong>Run Diagnosis</strong> button.<br>
+        <strong>ii.</strong> Upload your segmented RBC images for classification.<br>
+        <strong>iii.</strong> The classification results will be displayed in <strong>real-time</strong>.<br>
             
         <h4 style='color: purple;'>Note</h4>
         If you are working with <strong>pre-segmented RBC images</strong>, skip <strong>Step 1</strong> and go directly to <strong>Step 2</strong> for classification.
