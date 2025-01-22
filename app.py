@@ -302,4 +302,11 @@ if selected == "Cell segmentation":
                     file_name=zip_file_path,
                     mime="application/zip")
 
+
+    with st.sidebar.header("""Upload a Microscope Slide Image"""):
+        st.sidebar.markdown("""
+        This algorithm takes a microscope slide image as an input.<be>
+        The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
+        """, unsafe_allow_html=True)
+
 # %%
