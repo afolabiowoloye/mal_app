@@ -276,7 +276,7 @@ def create_zip_of_images(output_dir):
 
 
 
-if selected == "Cell segmentation":
+if selected == "Cell Segmentation":
     
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
