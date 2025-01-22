@@ -102,34 +102,19 @@ if selected == "Home":
     """, unsafe_allow_html=True)
     
     with st.sidebar.header("""How to Use the Web App"""):
-          st.sidebar.markdown("""
-          <h4 style='color: purple;'>Step 1: Image Segmentation (For Microscope Slide Images)</h4>          
-          i. If you are working with <h6>microscope slide images</h6> click the **Segmentation** button.\n
-          ii. The algorithm will automatically segment your images into individual **Red Blood Cell (RBC) images**\n
-          
-          <h4 style='color: purple;'>Step 2: Run Diagnosis (for Segmented RBC Images)</h4>
-          i. After segmentation (or if you already have **segmented RBC images**), click the **Run Diagnosis** button.\n
-          ii. Upload your segmented RBC images for classification.\n
-          iii. The classification results will be displayed in **real-time**.\n
-          
-          <h4 style='color: purple;'>Note</h4>
-          If you are working with **pre-segmented RBC images**, skip **Step 1** and go directly to **Step 2** for classification.
-          """, unsafe_allow_html=True)
-        
-        with st.sidebar.header("""How to Use the Web App"""):
-            st.sidebar.markdown("""
-            <h4 style='color: purple;'>Step 1: Image Segmentation (For Microscope Slide Images)</h4>
-            i. If you are working with <h6>microscope slide images</h6>, click the <strong>Segmentation</strong> button.<be>
-            ii. The algorithm will automatically segment your images into individual <strong>Red Blood Cell (RBC) images</strong>.<br>
+        st.sidebar.markdown("""
+        <h4 style='color: purple;'>Step 1: Image Segmentation (For Microscope Slide Images)</h4>
+        i. If you are working with <h6>microscope slide images</h6>, click the <strong>Segmentation</strong> button.<be>
+        ii. The algorithm will automatically segment your images into individual <strong>Red Blood Cell (RBC) images</strong>.<br>
             
-            <h4 style='color: purple;'>Step 2: Run Diagnosis (For Segmented RBC Images)</h4>
-            i. After segmentation (or if you already have <strong>segmented RBC images</strong>), click the <strong>Run Diagnosis</strong> button.<br>
-            ii. Upload your segmented RBC images for classification.<br>
-            iii. The classification results will be displayed in <strong>real-time</strong>.<br>
+        <h4 style='color: purple;'>Step 2: Run Diagnosis (For Segmented RBC Images)</h4>
+        i. After segmentation (or if you already have <strong>segmented RBC images</strong>), click the <strong>Run Diagnosis</strong> button.<br>
+        ii. Upload your segmented RBC images for classification.<br>
+        iii. The classification results will be displayed in <strong>real-time</strong>.<br>
             
-            <h4 style='color: purple;'>Note</h4>
-            If you are working with <strong>pre-segmented RBC images</strong>, skip <strong>Step 1</strong> and go directly to <strong>Step 2</strong> for classification.
-            """, unsafe_allow_html=True)
+        <h4 style='color: purple;'>Note</h4>
+        If you are working with <strong>pre-segmented RBC images</strong>, skip <strong>Step 1</strong> and go directly to <strong>Step 2</strong> for classification.
+        """, unsafe_allow_html=True)
     
 
 
