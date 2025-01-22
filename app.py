@@ -139,8 +139,8 @@ if selected == "Run Diagnosis":
 # Sidebar
     with st.sidebar.header('Upload Segmented RBCs'):
         st.sidebar.markdown("""
-        This section takes segmented RBBCs an input.<br>
-        The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
+        This section takes segmented RBCs an input.<br>
+        The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"</strong> format.
         """, unsafe_allow_html=True)
         st.sidebar.markdown("""[Example input file: Parasitized RBC](https://github.com/afolabiowoloye/mal_app/blob/main/logo/test_pos.png?raw=true)
         """)
@@ -311,7 +311,7 @@ if selected == "Cell segmentation":
     with st.sidebar.header("""Upload a Microscope Slide Image"""):
         st.sidebar.markdown("""
         This algorithm takes a microscope slide image as an input.<be>
-        The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
+        The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"</strong> format.
         """, unsafe_allow_html=True)
         
         st.sidebar.markdown("""[Example input file](https://github.com/afolabiowoloye/mal_app/blob/main/logo/sample.jpg?raw=true)""")
