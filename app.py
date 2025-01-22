@@ -77,16 +77,16 @@ if selected == "Home":
     <h5 style='color: blue;'>Here’s a step-by-step overview of how the application operates:</h5>  
     """, unsafe_allow_html=True)
     
-    with st.expander("**Upload Image**", icon=upload_icon):
+    with st.expander("**1. Upload Image**", icon=upload_icon):
         st.write("Users can upload microscope slide images containing red blood cells (RBCs). The application supports various image formats for ease of use.")
 
-    with st.expander("**Segmentation**", icon=segmentation_icon):
+    with st.expander("**2. Segmentation**", icon=segmentation_icon):
         st.write("Once the image is uploaded, the application employs sophisticated image processing techniques to segment the RBCs from the background. This step is crucial for isolating the cells for further analysis.")
     
-    with st.expander("**Classification**", icon=classification_icon):
+    with st.expander("**3. Classification**", icon=classification_icon):
         st.write("After segmentation, the application analyzes the isolated RBC images. Using a trained CNN model, it classifies each cell as either infected or uninfected. This classification is based on features learned during training, ensuring high accuracy.")
        
-    with st.expander("**Results Display**", icon=result_icon):
+    with st.expander("**4. Results Display**", icon=result_icon):
         st.write("The results are displayed to the user, indicating the number of infected and uninfected RBCs in the uploaded image. This information is vital for healthcare professionals to diagnose malaria quickly and efficiently.")
 
     st.markdown("""
