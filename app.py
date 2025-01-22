@@ -337,8 +337,9 @@ if selected == "Contact":
     st.subheader("Contact us")
     st.markdown(
         """
-        Afolabi OWOLOYE afolabiowoloye@yahoo.com.<br>
-        Funmilayo LIGALI xyz@gmail.com <br>
+        <strong>Afolabi OWOLOYE</strong> afolabiowoloye@yahoo.com.<br>
+        <strong>Funmilayo LIGALI</strong> ligalifunmilayo@gmail.com
+
         """,
         unsafe_allow_html=True
     )
