@@ -87,18 +87,27 @@ if selected == "Home":
     - The application is designed with a user-friendly interface, making it accessible for both medical professionals and researchers. Users can easily navigate through the process and obtain results in real time.
         
     """, unsafe_allow_html=True)
-    st.markdown('''
+    st.markdown("""
     <style>
-    .streamlit-expanderHeader {
-        background-color: blue;
-        color: green; # Adjust this for expander header color
-    }
+    .clickable {
+        color: rgb(46, 154, 255);
+        text-decoration: underline;
+        }
+    
     .streamlit-expanderContent {
         background-color: white;
         color: black; # Expander content color
-    }
-    </style>
-    ''', unsafe_allow_html=True)
+        } 
+    
+    .streamlit-expanderHeader {
+        background-color: white;
+        color: black; # Adjust this for expander header color
+        }
+        """, unsafe_allow_html=True)
+
+
+
+    
     with st.expander("Expand"):
         st.write("Content inside the expander")
 
