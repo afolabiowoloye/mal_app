@@ -309,6 +309,6 @@ if selected == "Cell segmentation":
         The input image can be in <strong>.jpg</strong>, <strong>.jpeg</strong>, or <strong>".png"<strong/> format.
         """, unsafe_allow_html=True)
         
-        st.sidebar.markdown("""[Example input file](https://raw.githubusercontent.com/afolabiowoloye/xyz/refs/heads/main/sample.csv)""")
+        st.sidebar.markdown("""[Example input file](https://github.com/afolabiowoloye/mal_app/blob/main/logo/sample.jpg?raw=true)""")
 
 # %%
