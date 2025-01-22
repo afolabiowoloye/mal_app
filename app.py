@@ -117,7 +117,7 @@ if selected == "Home":
         """, unsafe_allow_html=True)
 
         
-        st.sidebar.markdown("""<strong>[<strong>Link to the Article](https://www.biorxiv.org/content/10.1101/2024.12.12.628235v1)</strong>""")
+        st.sidebar.markdown("""<strong><a href="https://www.biorxiv.org/content/10.1101/2024.12.12.628235v1">Link to the Article</a></strong>""", unsafe_allow_html=True)
     
 
 
