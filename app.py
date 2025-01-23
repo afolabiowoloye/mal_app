@@ -138,10 +138,26 @@ if selected == "Home":
    
 
 if selected == "Run Diagnosis":
-    image = 'logo/CNN_confusion_matrix_test.png'
-    st.image(image, use_container_width=True)
+
+    # Image list
+    accuracy = "logo/model_accuracy.png"
+    matrix = "logo/CNN_confusion_matrix_test.png"
+
+    # Create a 1x2 grid
+    col1, col2 = st.columns(2)
+
+    # Place the images in the grid
+    with col1:
+        st.image(accuracy, use_container_width=True)
+
+    with col2:
+        st.image(matrix, use_container_width=True)
+    
+    
+    #image = 'logo/CNN_confusion_matrix_test.png'
+    #st.image(image, use_container_width=True)
     st.markdown("""
-    #### `` Figure 1: Testset Confusion Matrix``
+    #### `` Figure 1: Training Accuracy      Figure 1: Testset Confusion Matrix``
     """)
 
     st.markdown("""
