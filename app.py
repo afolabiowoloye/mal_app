@@ -141,7 +141,7 @@ if selected == "Run Diagnosis":
     image = 'logo/CNN_confusion_matrix_test.png'
     st.image(image, use_container_width=True)
     st.markdown("""
-    #### ``Figure 2: Testset Confusion Matrix``
+    #### ``Figure 1: Testset Confusion Matrix``
     """)
 
     st.markdown("""
