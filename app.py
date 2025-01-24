@@ -303,7 +303,7 @@ if selected == "Cell Segmentation":
         st.image(image, channels="BGR", caption='Uploaded Image', use_container_width=True)
 
         # Reset the uploaded file pointer for processing
-        uploaded_file.seek(1)
+        uploaded_file.seek(0)
 
         # Process the image and count contours
         contours = process_image(uploaded_file)
