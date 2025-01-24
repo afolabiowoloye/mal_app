@@ -304,7 +304,6 @@ if selected == "Cell Segmentation":
                     file_name=zip_file_path,
                     mime="application/zip"
                 )
-                )
 
 
     with st.sidebar.header("""Upload a Microscope Slide Image"""):
