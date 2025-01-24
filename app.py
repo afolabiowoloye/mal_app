@@ -192,7 +192,18 @@ if selected == "Run Diagnosis":
 
 
 ### Beginning of functions
+def clear_directory(directory):
+    """Utility function to clear a directory."""
+    if os.path.exists(directory):
+        shutil.rmtree(directory)  # Remove the entire directory
+        print(f"Cleared directory: {directory}")
+    os.makedirs(directory)  # Recreate the directory
+    print(f"Created directory: {directory}")
+
 def process_image(uploaded_file):
+    # Clear the 'cells' directory before processing new images
+    clear_directory('cells')
+
     # Load the image
     image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR)
 
@@ -205,10 +216,6 @@ def process_image(uploaded_file):
     # Find the contours of the segmented red blood cells
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Create a directory to save the individual red blood cell images
-    if not os.path.exists('cells'):
-        os.makedirs('cells')
-
     # Save each red blood cell as a separate image file
     for i, contour in enumerate(contours):
         x, y, w, h = cv2.boundingRect(contour)
@@ -220,6 +227,7 @@ def process_image(uploaded_file):
         file_path = os.path.join('cells', filename)
         if os.path.isfile(file_path) and os.path.getsize(file_path) < 1024:  # 1KB = 1024 bytes
             os.remove(file_path)
+            print(f"Deleted noisy file: {file_path}")
 
     return contours
 
@@ -227,10 +235,8 @@ def remove_background_and_save():
     input_dir = './cells'
     output_dir = './RBC'
 
-    # Clear the output directory before processing new images
-    if os.path.exists(output_dir):
-        shutil.rmtree(output_dir)  # Remove the entire directory
-    os.makedirs(output_dir)  # Recreate the directory
+    # Clear the 'RBC' directory before processing new images
+    clear_directory(output_dir)
 
     image_files = os.listdir(input_dir)
     for idx, image_file in enumerate(image_files, start=1):
@@ -250,12 +256,14 @@ def remove_background_and_save():
             cell_filename = f'imagemdx_{idx}_{i:02d}.png'
             cell_path = os.path.join(output_dir, cell_filename)
             cv2.imwrite(cell_path, cell_image)
+            print(f"Saved segmented cell: {cell_path}")
 
     # Delete images less than 1KB (noise)
     for filename in os.listdir(output_dir):
         file_path = os.path.join(output_dir, filename)
         if os.path.isfile(file_path) and os.path.getsize(file_path) < 1024:  # 1KB = 1024 bytes
             os.remove(file_path)
+            print(f"Deleted noisy file: {file_path}")
 
 def create_zip_of_images(output_dir):
     zip_filename = "segmented_cells.zip"
@@ -295,6 +303,7 @@ if selected == "Cell Segmentation":
                     data=f,
                     file_name=zip_file_path,
                     mime="application/zip"
+                )
                 )
 
 
