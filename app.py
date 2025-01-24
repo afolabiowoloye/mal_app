@@ -218,12 +218,11 @@ def process_image(uploaded_file):
     # Delete images less than 1KB (noise)
     for filename in os.listdir('cells'):
         file_path = os.path.join('cells', filename)
-        if os.path.isfile(file_path) and os.path.getsize(file_path) < 10024:
+        if os.path.isfile(file_path) and os.path.getsize(file_path) < 1024:  # 1KB = 1024 bytes
             os.remove(file_path)
 
     return contours
 
-# Function to remove background and save images
 def remove_background_and_save():
     input_dir = './cells'
     output_dir = './RBC'
@@ -255,7 +254,7 @@ def remove_background_and_save():
     # Delete images less than 1KB (noise)
     for filename in os.listdir(output_dir):
         file_path = os.path.join(output_dir, filename)
-        if os.path.isfile(file_path) and os.path.getsize(file_path) < 1024:  # Corrected to 1KB (1024 bytes)
+        if os.path.isfile(file_path) and os.path.getsize(file_path) < 1024:  # 1KB = 1024 bytes
             os.remove(file_path)
 
 def create_zip_of_images(output_dir):
