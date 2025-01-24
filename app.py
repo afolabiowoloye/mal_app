@@ -295,15 +295,15 @@ def create_zip_of_images(output_dir):
 
 if selected == "Cell Segmentation":
     
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    uploaded_file1 = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-    if uploaded_file is not None:
+    if uploaded_file1 is not None:
         # Display the uploaded image
-        image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR)
+        image = cv2.imdecode(np.frombuffer(uploaded_file1.read(), np.uint8), cv2.IMREAD_COLOR)
         st.image(image, channels="BGR", caption='Uploaded Image', use_container_width=True)
 
         # Reset the uploaded file pointer for processing
-        uploaded_file.seek(0)
+        uploaded_file1.seek(0)
 
         # Process the image and count contours
         contours = process_image(uploaded_file)
