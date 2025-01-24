@@ -11,6 +11,7 @@ import os
 from streamlit_option_menu import option_menu # for setting up menu bar
 import cv2
 import zipfile
+import shutil
 
 
 # Load the trained model from Google Drive
@@ -163,34 +164,8 @@ if selected == "Run Diagnosis":
         """)
         st.sidebar.markdown("""[Example input file; Uninfected RBC](https://github.com/afolabiowoloye/mal_app/blob/main/logo/test_unifected.png?raw=true)
         """)
-        
-###*** For single images***###
-# File uploader
-    #uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg"])
-    #if uploaded_file is not None:
-    # Load the test image
-        #test_image = Image.open(uploaded_file)
-    # Preprocess the test image
-        #test_image = test_image.resize((img_width, img_height))
-        #test_image = np.array(test_image) / 255.0  # Normalize the pixel values
-        #test_image = np.expand_dims(test_image, axis=0)  # Add batch dimension    
-    # Make the prediction
-        #prediction = model.predict(test_image)    
-    # Interpret the prediction
-        #label = "Uninfected" if prediction[0][0] >= 0.5 else "Parasitized"    
-    # Display the image with the prediction
-        #st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
-        #st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)
-        ##st.write(f"Predicted Label: **{label}**")    
-    # Optionally, save the predicted image
-        #plt.imshow(test_image[0])
-        #plt.title("Predicted Label: " + label)
-        #plt.axis("off")
-        #plt.savefig("predicted_image.png")
-        #plt.close()  # Close the plot to avoid display issues
-###*** End_For single images***###
 
-# File uploader
+    #File uploader
     uploaded_files = st.file_uploader("Choose images...", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
     if uploaded_files is not None:
         for uploaded_file in uploaded_files:
@@ -253,8 +228,10 @@ def remove_background_and_save():
     input_dir = './cells'
     output_dir = './RBC'
 
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    # Clear the output directory before processing new images
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)  # Remove the entire directory
+    os.makedirs(output_dir)  # Recreate the directory
 
     image_files = os.listdir(input_dir)
     for idx, image_file in enumerate(image_files, start=1):
@@ -278,10 +255,9 @@ def remove_background_and_save():
     # Delete images less than 1KB (noise)
     for filename in os.listdir(output_dir):
         file_path = os.path.join(output_dir, filename)
-        if os.path.isfile(file_path) and os.path.getsize(file_path) < 10024:
+        if os.path.isfile(file_path) and os.path.getsize(file_path) < 1024:  # Corrected to 1KB (1024 bytes)
             os.remove(file_path)
 
-# Function to create a ZIP file of the segmented images
 def create_zip_of_images(output_dir):
     zip_filename = "segmented_cells.zip"
     with zipfile.ZipFile(zip_filename, 'w') as zipf:
@@ -289,40 +265,38 @@ def create_zip_of_images(output_dir):
             for file in files:
                 zipf.write(os.path.join(root, file), file)
     return zip_filename
-### End of functions
 
-
-
+# Streamlit App Logic
 if selected == "Cell Segmentation":
-    
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
         # Display the uploaded image
         image = cv2.imdecode(np.frombuffer(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR)
-        st.image(image, channels="BGR", caption='Uploaded Image', use_container_width=True)
+        st.image(image, channels="BGR", caption='Uploaded Image', use_column_width=True)
 
         # Reset the uploaded file pointer for processing
-        uploaded_file.seek()
+        uploaded_file.seek(0)
 
         # Process the image and count contours
         contours = process_image(uploaded_file)
         st.write(f"Found {len(contours)} red blood cell(s).")
-    
+
         # Remove background and save images
         remove_background_and_save()
-    
+
         # Create ZIP file of the segmented images
         if os.path.exists('./RBC'):
             zip_file_path = create_zip_of_images('./RBC')
-        
+
             # Provide a download button for the ZIP file
             with open(zip_file_path, "rb") as f:
                 st.download_button(
                     label="Download All Segmented Images",
                     data=f,
                     file_name=zip_file_path,
-                    mime="application/zip")
+                    mime="application/zip"
+                )
 
 
     with st.sidebar.header("""Upload a Microscope Slide Image"""):
