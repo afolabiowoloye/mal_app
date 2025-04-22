@@ -15,9 +15,10 @@ import shutil
 
 
 # Load the trained model from Google Drive
-model_link_id = "1Fwhl5iEqgsoblKymdUFbp10eesb69O7T"
-model_link = f'https://drive.google.com/uc?id={model_link_id}'
+#model_link_id = "1Fwhl5iEqgsoblKymdUFbp10eesb69O7T"
+#model_link = f'https://drive.google.com/uc?id={model_link_id}'
 
+model_link = "https://github.com/afolabiowoloye/mal_app/raw/refs/heads/main/model.h5"
 # Download the model file
 model_filename = 'model.h5'
 if not os.path.exists(model_filename):
