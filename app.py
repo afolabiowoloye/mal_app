@@ -18,6 +18,7 @@ import shutil
 #model_link_id = "1Fwhl5iEqgsoblKymdUFbp10eesb69O7T"
 #model_link = f'https://drive.google.com/uc?id={model_link_id}'
 
+#or load the trained model from GitHub (recommended)
 model_link = "https://github.com/afolabiowoloye/mal_app/raw/refs/heads/main/model.h5"
 # Download the model file
 model_filename = 'model.h5'
