@@ -171,41 +171,58 @@ if selected == "Run Diagnosis":
     # File uploader
     uploaded_files = st.file_uploader("Choose images...", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
 
-    if uploaded_files and len(uploaded_files) > 0:
-        # Initialize counters and results storage
+    if uploaded_files and len(uploaded_files) > 0:  # More explicit check
+        # Initialize counters
         parasitized_count = 0
         uninfected_count = 0
-        all_results = []
+        processed_files = 0
     
-        # First pass: Process all files to get counts
+        # Create a progress bar
+        progress_bar = st.progress(0)
+    
         for uploaded_file in uploaded_files:
             try:
+                # Load the test image
                 test_image = Image.open(uploaded_file)
-                test_image_resized = test_image.resize((img_width, img_height))
-                test_image_array = np.array(test_image_resized) / 255.0
-                test_image_array = np.expand_dims(test_image_array, axis=0)
             
+                # Preprocess the test image
+                test_image_resized = test_image.resize((img_width, img_height))
+                test_image_array = np.array(test_image_resized) / 255.0  # Normalize
+                test_image_array = np.expand_dims(test_image_array, axis=0)  # Add batch dimension
+            
+                # Make the prediction
                 prediction = model.predict(test_image_array)
             
+                # Interpret the prediction
                 if prediction[0][0] >= 0.5:
                     label = "Uninfected"
                     uninfected_count += 1
                 else:
                     label = "Parasitized"
                     parasitized_count += 1
-                
-                all_results.append({
-                    "Filename": uploaded_file.name,
-                    "Prediction": label,
-                    "Confidence": float(prediction[0][0]) if label == "Uninfected" else float(1 - prediction[0][0])
-                })
+            
+                # Display the image with prediction
+                st.image(uploaded_file, caption=f"Uploaded Image: {label}", use_container_width=True)
+            
+                # Update progress
+                processed_files += 1
+                progress_bar.progress(processed_files / len(uploaded_files))
             
             except Exception as e:
                 st.error(f"Error processing {uploaded_file.name}: {str(e)}")
                 continue
     
-        # Show summary dataframe first
-        st.subheader("Summary Results")
+        # Display results
+        st.success("Processing complete!")
+    
+        # Show totals in columns
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Parasitized Cells", parasitized_count)
+        with col2:
+            st.metric("Uninfected Cells", uninfected_count)
+    
+        # Show summary dataframe
         summary_df = pd.DataFrame({
             "Status": ["Parasitized", "Uninfected"],
             "Count": [parasitized_count, uninfected_count],
@@ -216,48 +233,20 @@ if selected == "Run Diagnosis":
         })
         st.dataframe(summary_df, hide_index=True)
     
-        # Optional: Show pie chart after summary
+        # Show pie chart
         fig, ax = plt.subplots()
         ax.pie(
-            summary_df["Count"],
-            labels=summary_df["Status"],
+            [parasitized_count, uninfected_count],
+            labels=["Parasitized", "Uninfected"],
             autopct='%1.1f%%',
             colors=['#ff9999','#66b3ff']
         )
         ax.set_title("Infection Distribution")
         st.pyplot(fig)
-    
-        # Second pass: Show individual image results
-        st.subheader("Image Details")
-        for i, result in enumerate(all_results):
-            uploaded_file = uploaded_files[i]
-        
-            # Display the image with prediction
-            st.image(uploaded_file, 
-                    caption=f"{result['Filename']} - {result['Prediction']} (Confidence: {result['Confidence']:.2f})", 
-                    use_container_width=True)
-        
-            # Optionally save the predicted image
-            test_image = Image.open(uploaded_file)
-            test_image_resized = test_image.resize((img_width, img_height))
-            test_image_array = np.array(test_image_resized) / 255.0
-        
-            plt.figure()
-            plt.imshow(test_image_array)
-            plt.title(f"Predicted: {result['Prediction']}")
-            plt.axis("off")
-            plt.savefig(f"predicted_image_{uploaded_file.name}.png")
-            plt.close()
 
-    elif uploaded_files is not None:
+    elif uploaded_files is not None:  # Handle case when empty list is passed
         st.warning("No files were uploaded")
-
-
-    
-
-
-    
-
+     
 
 ### Beginning of functions
 def clear_directory(directory):
