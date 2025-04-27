@@ -170,51 +170,82 @@ if selected == "Run Diagnosis":
 
     # File uploader
     uploaded_files = st.file_uploader("Choose images...", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
-    if uploaded_files is not None:
+
+    if uploaded_files and len(uploaded_files) > 0:  # More explicit check
         # Initialize counters
         parasitized_count = 0
         uninfected_count = 0
+        processed_files = 0
+    
+        # Create a progress bar
+        progress_bar = st.progress(0)
     
         for uploaded_file in uploaded_files:
-            # Load the test image
-            test_image = Image.open(uploaded_file)        
-            # Preprocess the test image
-            test_image_resized = test_image.resize((img_width, img_height))
-            test_image_array = np.array(test_image_resized) / 255.0  # Normalize the pixel values
-            test_image_array = np.expand_dims(test_image_array, axis=0)  # Add batch dimension        
-            # Make the prediction
-            prediction = model.predict(test_image_array)        
-            # Interpret the prediction
-            if prediction[0][0] >= 0.5:
-                label = "Uninfected"
-                uninfected_count += 1
-            else:
-                label = "Parasitized"
-                parasitized_count += 1
-        
-            # Display the image with the prediction
-            st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
-            st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)        
-            # Optionally, save the predicted image
-            plt.imshow(test_image_array[0])
-            plt.title("Predicted Label: " + label)
-            plt.axis("off")
-            plt.savefig(f"predicted_image_{uploaded_file.name}.png")
-            plt.close()  # Close the plot to avoid display issues
+            try:
+                # Load the test image
+                test_image = Image.open(uploaded_file)
+            
+                # Preprocess the test image
+                test_image_resized = test_image.resize((img_width, img_height))
+                test_image_array = np.array(test_image_resized) / 255.0  # Normalize
+                test_image_array = np.expand_dims(test_image_array, axis=0)  # Add batch dimension
+            
+                # Make the prediction
+                prediction = model.predict(test_image_array)
+            
+                # Interpret the prediction
+                if prediction[0][0] >= 0.5:
+                    label = "Uninfected"
+                    uninfected_count += 1
+                else:
+                    label = "Parasitized"
+                    parasitized_count += 1
+            
+                # Display the image with prediction
+                st.image(uploaded_file, caption=f"Uploaded Image: {label}", use_container_width=True)
+            
+                # Update progress
+                processed_files += 1
+                progress_bar.progress(processed_files / len(uploaded_files))
+            
+            except Exception as e:
+                st.error(f"Error processing {uploaded_file.name}: {str(e)}")
+                continue
     
-        # Display the total counts after processing all images
-        st.subheader("Total Counts")
-        st.write(f"Parasitized: {parasitized_count}")
-        st.write(f"Uninfected: {uninfected_count}")
+        # Display results
+        st.success("Processing complete!")
     
-        # Optional: Display as a dataframe
-        count_data = {
-            "Category": ["Parasitized", "Uninfected"],
-            "Count": [parasitized_count, uninfected_count]
-        }
-        st.dataframe(count_data)
+        # Show totals in columns
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Parasitized Cells", parasitized_count)
+        with col2:
+            st.metric("Uninfected Cells", uninfected_count)
+    
+        # Show summary dataframe
+        summary_df = pd.DataFrame({
+            "Status": ["Parasitized", "Uninfected"],
+            "Count": [parasitized_count, uninfected_count],
+            "Percentage": [
+                f"{(parasitized_count/len(uploaded_files))*100:.1f}%",
+                f"{(uninfected_count/len(uploaded_files))*100:.1f}%"
+            ]
+        })
+        st.dataframe(summary_df, hide_index=True)
+    
+        # Show pie chart
+        fig, ax = plt.subplots()
+        ax.pie(
+            [parasitized_count, uninfected_count],
+            labels=["Parasitized", "Uninfected"],
+            autopct='%1.1f%%',
+            colors=['#ff9999','#66b3ff']
+        )
+        ax.set_title("Infection Distribution")
+        st.pyplot(fig)
 
-
+    elif uploaded_files is not None:  # Handle case when empty list is passed
+        st.warning("No files were uploaded")
 
 
     
