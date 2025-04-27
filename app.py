@@ -12,6 +12,7 @@ from streamlit_option_menu import option_menu # for setting up menu bar
 import cv2
 import zipfile
 import shutil
+import pandas as pd
 
 
 # Load the trained model from Google Drive
