@@ -203,6 +203,8 @@ if selected == "Run Diagnosis":
                     parasitized_count += 1
             
                 # Display the image with prediction
+                st.image(uploaded_file, use_container_width=True)
+                st.markdown(f"""<p style='text-align: center; font-size: 16px;'>Uploaded Image: <strong>{label}</strong></p>""",unsafe_allow_html=True)
                 st.image(uploaded_file, caption=f"Uploaded Image: {label}", use_container_width=True)
             
                 # Update progress
