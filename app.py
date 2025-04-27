@@ -167,30 +167,91 @@ if selected == "Run Diagnosis":
         st.sidebar.markdown("""[Example input file; Uninfected RBC](https://github.com/afolabiowoloye/mal_app/blob/main/logo/test_unifected.png?raw=true)
         """)
 
+
+
+
     #File uploader
     uploaded_files = st.file_uploader("Choose images...", type=["png", "jpg", "jpeg"], accept_multiple_files=True)
     if uploaded_files is not None:
+        # Initialize counters
+        infected_count = 0
+        uninfected_count = 0
+        results = []  # To store individual image results
+        
         for uploaded_file in uploaded_files:
-        # Load the test image
-            test_image = Image.open(uploaded_file)        
-        # Preprocess the test image
+            # Load and process the image
+            test_image = Image.open(uploaded_file)
             test_image_resized = test_image.resize((img_width, img_height))
-            test_image_array = np.array(test_image_resized) / 255.0  # Normalize the pixel values
-            test_image_array = np.expand_dims(test_image_array, axis=0)  # Add batch dimension        
-        # Make the prediction
-            prediction = model.predict(test_image_array)        
-        # Interpret the prediction
-            label = "Uninfected" if prediction[0][0] >= 0.5 else "Parasitized"        
-        # Display the image with the prediction
+            test_image_array = np.array(test_image_resized) / 255.0
+            test_image_array = np.expand_dims(test_image_array, axis=0)
+        
+            # Make prediction
+            prediction = model.predict(test_image_array)
+        
+            # Interpret prediction
+            if prediction[0][0] >= 0.5:
+                label = "Uninfected"
+                uninfected_count += 1
+            else:
+                label = "Parasitized"
+                infected_count += 1
+        
+            # Store results for this image
+            results.append({
+                "Filename": uploaded_file.name,
+                "Prediction": label,
+                "Confidence": float(prediction[0][0]) if label == "Uninfected" else float(1 - prediction[0][0])
+            })
+        
+            # Display the image with prediction (your existing code)
             st.image(uploaded_file, caption="Uploaded Image", use_container_width=True)
-            st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)        
-        # Optionally, save the predicted image
+            st.markdown(f"<h4 style='color: red;'>Predicted label: <strong>{label}</strong></h4>", unsafe_allow_html=True)
+        
+            # Save predicted image (your existing code)
             plt.imshow(test_image_array[0])
             plt.title("Predicted Label: " + label)
             plt.axis("off")
             plt.savefig(f"predicted_image_{uploaded_file.name}.png")
-            plt.close()  # Close the plot to avoid display issues
+            plt.close()
+    
+        # Create and display summary dataframe
+        summary_df = pd.DataFrame({
+            "Category": ["Parasitized", "Uninfected"],
+            "Count": [infected_count, uninfected_count]
+        })
+    
+        st.subheader("Summary Statistics")
+        st.dataframe(summary_df)
+    
+        # Optional: Show detailed results for all images
+        st.subheader("Detailed Results")
+        results_df = pd.DataFrame(results)
+        st.dataframe(results_df)
+    
+        # Optional: Add a pie chart visualization
+        if len(uploaded_files) > 0:
+            fig, ax = plt.subplots()
+            ax.pie(summary_df["Count"], labels=summary_df["Category"], autopct='%1.1f%%')
+            ax.set_title("Infection Distribution")
+            st.pyplot(fig)
 
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
 
 
 ### Beginning of functions
