@@ -35,7 +35,7 @@ img_width = 64
 img_height = 64
 
 # Streamlit app title
-#st.title("Plasmo3Net: Malaria Detection using CNN")
+#st.title("Plasmo3Net: Evans CNN")
 
 #-----------Web page setting-------------------#
 #page_title1 = st.markdown("""
