@@ -42,7 +42,7 @@ img_height = 64
 #    <h3 style='color: blue;'>💊Malaria Detection Web App using CNN</h3>
 #    """, unsafe_allow_html=True)
 
-page_title = "🩸🦟🦟🩺Malaria Detection Web App"
+page_title = "🩸🦟🦟🩺ANZ"
 page_icon = "🩺🦟🦟🩸"
 viz_icon = "📊"
 stock_icon = "📋"
