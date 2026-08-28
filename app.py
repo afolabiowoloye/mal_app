@@ -57,7 +57,7 @@ result_icon ="✅"
 st.set_page_config(page_title = page_title, page_icon = page_icon, layout = layout)
 
 
-head_image = 'logo/header2.png'
+head_image = 'logo/header.png'
 st.image(head_image, use_container_width=True)
 
 
